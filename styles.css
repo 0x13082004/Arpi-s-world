@@ -1,78 +1,137 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f9d6ff, #ffe6f0);
-    color: #333;
+    background: #fff4f8;
+    color: #4b2c5e;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #4b2c5e;
+}
+
+.container {
+    width: 90%; /* Adjust for mobile screens */
+    max-width: 1200px;
+    margin: auto;
 }
 
 /* Header Section */
 header {
     text-align: center;
-    padding: 50px;
-    background: #ff88cc;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #fbb1bd, #ffdde1);
+    padding: 30px 10px; /* Reduce padding for smaller screens */
+    color: #fff;
+    border-bottom: 4px solid #e3a7c0;
 }
 
-header h1 {
-    font-size: 2.5em;
+header .profile-img {
+    width: 120px; /* Reduce size for mobile */
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 4px solid #fff;
 }
 
-header p {
-    font-size: 1.2em;
-    margin-top: 10px;
-}
-
-/* Navigation */
-nav {
-    background: #ff66b2;
-    padding: 10px 20px;
-}
-
-nav ul {
-    list-style: none;
+/* About Section */
+.about {
+    background: #ffffff;
+    padding: 20px 10px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin: 0;
-    padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+.about p {
+    font-size: 1em; /* Smaller font for mobile */
+    line-height: 1.5;
+    color: #4b2c5e;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+.about-img {
+    margin-top: 15px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    border: 3px solid #fbb1bd;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Section Styles */
-section {
-    padding: 30px;
-    margin: 20px;
-    background: white;
+/* Interests Section */
+.interests {
+    background: #ffeef5;
+    padding: 20px 10px;
+    margin: 15px 0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-section h2 {
-    text-align: center;
-    color: #ff66b2;
+.interests .interest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive grid */
+    gap: 15px;
 }
 
-/* Footer */
-footer {
+.interests .interest {
     text-align: center;
-    background: #ff88cc;
-    padding: 20px;
-    color: white;
-    margin-top: 20px;
-    border-top: 3px solid #ff66b2;
+    background: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.interests .interest img {
+    width: 80px; /* Reduce size for mobile */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #fbb1bd;
+}
+
+.interests .interest h3 {
+    color: #4b2c5e;
+    font-size: 0.9em; /* Smaller font for mobile */
+}
+
+/* Footer Section */
+footer {
+    background: #4b2c5e;
+    color: #fff;
+    text-align: center;
+    padding: 10px 5px;
+    margin-top: 15px;
+    border-top: 4px solid #fbb1bd;
+}
+
+footer p {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 5px;
+    }
+
+    header .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .about p, .interests .interest h3 {
+        font-size: 0.85em;
+    }
+
+    .about-img {
+        max-width: 250px;
+    }
+
+    .interests .interest img {
+        width: 70px;
+        height: 70px;
+    }
 }
