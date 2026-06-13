@@ -86,15 +86,17 @@
 
     <main>
 
-        <!-- BIRTHDAY COUNTDOWN -->
+        <!-- A LITTLE MOMENT (date-aware) -->
         <section class="wish" id="wish">
             <div class="card glass wish__card reveal tilt">
-                <div class="wish__cake">🎂</div>
-                <span class="section__kicker">Save the date</span>
-                <h2 class="section__title">My Special Day</h2>
-                <p class="wish__lead">Counting down every second to <strong>16<sup>th</sup> June</strong> ... the day a little more light came into the world ✨</p>
+                <div class="wish__cake" id="moment-icon">🌸</div>
+                <span class="section__kicker" id="moment-kicker">A little note in the air</span>
+                <h2 class="section__title" id="moment-title">Hey, Arpi</h2>
+                <p class="wish__lead" id="moment-lead" hidden></p>
 
-                <div class="countdown" id="countdown" role="timer" aria-live="polite">
+                <p class="wish__msg" id="moment-msg"></p>
+
+                <div class="countdown" id="countdown" hidden role="timer" aria-live="polite">
                     <div class="count"><span class="count__num" id="cd-days">00</span><span class="count__label">Days</span></div>
                     <div class="count"><span class="count__num" id="cd-hours">00</span><span class="count__label">Hours</span></div>
                     <div class="count"><span class="count__num" id="cd-mins">00</span><span class="count__label">Minutes</span></div>
@@ -104,7 +106,7 @@
                 <p class="wish__bday" id="bday-msg" hidden>🎉 Happy Birthday, Arpi! 🎉</p>
 
                 <button class="btn-gift magnetic" id="gift-btn" type="button">
-                    <span>🎁 Open your surprise</span>
+                    <span>🎀 Note for u Arpi</span>
                 </button>
             </div>
         </section>

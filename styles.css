@@ -31,6 +31,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -205,6 +206,13 @@ section { width: min(92%, var(--maxw)); margin: 0 auto; padding: 56px 0; }
 @keyframes bob { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-10px);} }
 .wish__lead { max-width: 560px; margin: 8px auto 26px; color: var(--ink-soft); font-weight: 500; }
 .wish__lead sup { font-size: .6em; }
+.wish__msg {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: clamp(1.25rem, 3.2vw, 1.7rem); line-height: 1.5; color: var(--ink);
+    max-width: 580px; margin: 10px auto 28px; min-height: 2.6em;
+    opacity: 0; transform: translateY(12px); transition: opacity .55s var(--ease), transform .55s var(--ease);
+}
+.wish__msg.show { opacity: 1; transform: none; }
 
 .countdown { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin: 8px 0 28px; }
 .count { min-width: 96px; padding: 20px 12px; border-radius: 20px; background: rgba(255,255,255,.65); border: 1px solid var(--glass-brd); box-shadow: var(--shadow-sm); position: relative; overflow: hidden; }

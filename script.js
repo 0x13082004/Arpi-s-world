@@ -145,45 +145,141 @@
         });
     })();
 
-    /* ---------- Birthday countdown (16 June) ---------- */
-    var isBirthday = false;
-    (function countdown() {
-        var elD = document.getElementById('cd-days'),
+    /* ---------- Date-aware moment (off-season / birthday eve / birthday) ---------- */
+    function setNote(mode) {
+        var noteEl = document.querySelector('.modal__note');
+        var signEl = document.querySelector('.modal__sign');
+        var titleEl = document.getElementById('modal-title');
+        if (!noteEl) return;
+        if (mode === 'bday' || mode === 'eve') {
+            if (titleEl) titleEl.textContent = 'A little wish for you';
+            noteEl.innerHTML = "Happy Birthday, Arpi! 🎂<br><br>" +
+                "Here's to the dreamer who's going to travel the world and heal it as a doctor someday. " +
+                "May this year be as sweet as your favourite ice cream, as bright as your smile, " +
+                "and full of every little thing that makes you happy. " +
+                "Keep dreaming, keep shining... the world is so much better with you in it. 🌸";
+            if (signEl) signEl.textContent = '... with the warmest birthday wishes';
+        } else {
+            if (titleEl) titleEl.textContent = 'A little note for you';
+            noteEl.innerHTML = "Hey, Arpi 🌸<br><br>" +
+                "Just a little note tucked away here, for whenever you happen to find it. " +
+                "Whatever you've been carrying lately, I hope it gets a little lighter. " +
+                "Keep dreaming those big dreams... travel far, heal hearts, and stay every bit as kind as you are. " +
+                "The world is so much better with you somewhere in it.";
+            if (signEl) signEl.textContent = '... from an old friend';
+        }
+    }
+
+    var bdayConfettiDone = false;
+    (function moment() {
+        var icon = document.getElementById('moment-icon'),
+            kicker = document.getElementById('moment-kicker'),
+            title = document.getElementById('moment-title'),
+            lead = document.getElementById('moment-lead'),
+            msg = document.getElementById('moment-msg'),
+            cd = document.getElementById('countdown'),
+            bday = document.getElementById('bday-msg'),
+            elD = document.getElementById('cd-days'),
             elH = document.getElementById('cd-hours'),
             elM = document.getElementById('cd-mins'),
-            elS = document.getElementById('cd-secs'),
-            bday = document.getElementById('bday-msg'),
-            cd = document.getElementById('countdown');
-        if (!elD) return;
+            elS = document.getElementById('cd-secs');
+        if (!icon) return;
+
+        var offMessages = [
+            { i: '🌸', t: "Some people make the whole world softer just by being in it. You're one of them." },
+            { i: '✈️', t: "Wherever the road takes you, may it always be a little kind to you." },
+            { i: '🍦', t: "Stay sweet, stay dreaming, stay exactly as you are." },
+            { i: '🩺', t: "One day you'll heal hearts for a living... you already do, you know." },
+            { i: '✨', t: "A little reminder for today... you're doing far better than you think." },
+            { i: '🌍', t: "Here's to big dreams, far-off places, and the girl quietly chasing them." },
+            { i: '🤍', t: "Whatever today feels like, I hope it gets lighter from here." },
+            { i: '💫', t: "The world is a better place with you somewhere in it. Don't forget that." }
+        ];
 
         function pad(n) { return (n < 10 ? '0' : '') + n; }
-        function nextBirthday(now) {
-            var y = now.getFullYear();
-            var target = new Date(y, 5, 16, 0, 0, 0);
-            var endOfDay = new Date(y, 5, 16, 23, 59, 59);
-            if (now > endOfDay) target = new Date(y + 1, 5, 16, 0, 0, 0);
-            return target;
+        function getMode(now) {
+            var m = now.getMonth(), d = now.getDate();
+            if (m === 5 && d === 16) return 'bday';
+            if (m === 5 && d === 15) return 'eve';
+            return 'off';
         }
-        function tick() {
-            var now = new Date();
-            if (now.getMonth() === 5 && now.getDate() === 16) {
-                if (!isBirthday) {
-                    isBirthday = true;
-                    if (bday) bday.hidden = false;
-                    if (cd) cd.style.display = 'none';
-                    launchConfetti(140);
-                }
-                return;
-            }
-            var diff = Math.max(0, nextBirthday(now) - now);
+
+        var curMode = null, rotTimer = null, rotIdx = 0;
+
+        function stopRotation() { if (rotTimer) { clearInterval(rotTimer); rotTimer = null; } }
+        function rotate() {
+            var m = offMessages[rotIdx % offMessages.length];
+            rotIdx++;
+            msg.classList.remove('show');
+            setTimeout(function () {
+                msg.textContent = m.t;
+                icon.textContent = m.i;
+                msg.classList.add('show');
+            }, 380);
+        }
+        function startRotation() {
+            stopRotation();
+            // first message instantly visible
+            var m = offMessages[rotIdx % offMessages.length]; rotIdx++;
+            msg.textContent = m.t; icon.textContent = m.i; msg.classList.add('show');
+            rotTimer = setInterval(rotate, 5400);
+        }
+
+        function tickCountdown(now) {
+            var target = new Date(now.getFullYear(), 5, 16, 0, 0, 0);
+            var diff = Math.max(0, target - now);
             var s = Math.floor(diff / 1000);
             elD.textContent = pad(Math.floor(s / 86400));
             elH.textContent = pad(Math.floor((s % 86400) / 3600));
             elM.textContent = pad(Math.floor((s % 3600) / 60));
             elS.textContent = pad(s % 60);
         }
-        tick();
-        setInterval(tick, 1000);
+
+        function applyMode(mode) {
+            if (mode === curMode) return;
+            curMode = mode;
+            setNote(mode);
+            if (mode === 'off') {
+                icon.textContent = '🌸';
+                kicker.textContent = 'A little note in the air';
+                title.textContent = 'Hey, Arpi';
+                lead.hidden = true;
+                cd.hidden = true;
+                bday.hidden = true;
+                msg.hidden = false;
+                startRotation();
+            } else if (mode === 'eve') {
+                stopRotation();
+                msg.hidden = true;
+                icon.textContent = '🎂';
+                kicker.textContent = 'Almost time';
+                title.textContent = 'One More Sleep...';
+                lead.hidden = false;
+                lead.innerHTML = "Arpi's birthday is almost here... counting down to <strong>16<sup>th</sup> June</strong> ✨";
+                bday.hidden = true;
+                cd.hidden = false;
+            } else { // bday
+                stopRotation();
+                msg.hidden = true;
+                icon.textContent = '🎂';
+                kicker.textContent = 'The big day';
+                title.textContent = 'Happy Birthday, Arpi!';
+                lead.hidden = false;
+                lead.textContent = 'Today, the whole world gets to celebrate you 🎉';
+                cd.hidden = true;
+                bday.hidden = false;
+                if (!bdayConfettiDone) { bdayConfettiDone = true; launchConfetti(150); }
+            }
+        }
+
+        function loop() {
+            var now = new Date();
+            var mode = getMode(now);
+            applyMode(mode);
+            if (mode === 'eve') tickCountdown(now);
+        }
+        loop();
+        setInterval(loop, 1000);
     })();
 
     /* ---------- Confetti ---------- */
