@@ -3,60 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sadia Islam Arpi 🌸</title>
+    <meta name="theme-color" content="#4b2c5e">
+    <meta name="description" content="A little universe made just for Sadia Islam Arpi.">
+    <title>Sadia Islam Arpi 🌸 · My World</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="https://i.postimg.cc/XJVWTKyf/IMG-20250103-035537-767.jpg" alt="Sadia Islam Arpi" class="profile-img">
-            <h1>🌸My World🌸</h1>
-            <p>A dreamer, a traveler✈️, and aim to be a doctor🩺.</p>
+
+    <!-- premium overlays -->
+    <div class="grain" aria-hidden="true"></div>
+    <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <!-- dreamy animated background -->
+    <div class="bg-aurora" aria-hidden="true">
+        <span class="orb orb-1"></span>
+        <span class="orb orb-2"></span>
+        <span class="orb orb-3"></span>
+        <span class="orb orb-4"></span>
+    </div>
+    <div class="bg-particles" id="particles" aria-hidden="true"></div>
+
+    <!-- floating navbar -->
+    <nav class="nav" id="nav">
+        <a href="#home" class="nav__brand">
+            <span class="nav__logo">A</span>
+            <span class="nav__name">Arpi's&nbsp;World</span>
+        </a>
+        <div class="nav__links">
+            <a href="#about">About</a>
+            <a href="#interests">Interests</a>
+            <a href="#wish">Birthday</a>
+        </div>
+        <a class="nav__ig magnetic" href="https://instagram.com/meowgonnaeatualive" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            <span>@meowgonnaeatualive</span>
+        </a>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+        <div class="hero__inner">
+            <span class="hero__eyebrow reveal">✦ A little universe of my favourite things ✦</span>
+
+            <div class="avatar reveal" data-parallax="14">
+                <span class="avatar__badge" aria-hidden="true">
+                    <svg viewBox="0 0 100 100"><defs><path id="circlePath" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"/></defs><text><textPath href="#circlePath">★ HAPPY BIRTHDAY ★ SADIA ISLAM ARPI ★ JUNE 16 </textPath></text></svg>
+                </span>
+                <span class="avatar__ring"></span>
+                <span class="avatar__glow"></span>
+                <img src="https://i.postimg.cc/XJVWTKyf/IMG-20250103-035537-767.jpg" alt="Sadia Islam Arpi" class="profile-img">
+                <span class="avatar__spark avatar__spark--1">✦</span>
+                <span class="avatar__spark avatar__spark--2">✧</span>
+            </div>
+
+            <h1 class="hero__title" data-split>Sadia Islam Arpi</h1>
+            <p class="hero__tagline reveal">My&nbsp;World</p>
+            <p class="hero__subtitle reveal">A dreamer, a traveler ✈️, and aiming to be a doctor 🩺</p>
+
+            <div class="chips reveal">
+                <span class="chip">🌍 Wanderer</span>
+                <span class="chip">🍦 Sweet tooth</span>
+                <span class="chip">👗 Fashionista</span>
+                <span class="chip">🩺 Future doctor</span>
+            </div>
+
+            <a href="#wish" class="scroll-cue reveal" aria-label="Scroll down"><span></span></a>
         </div>
     </header>
+
+    <!-- marquee ribbon -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+            <span>Dream big ✦ Travel far ✈️ Stay sweet 🍦 Shine bright ✦ Dream big ✦ Travel far ✈️ Stay sweet 🍦 Shine bright ✦ Dream big ✦ Travel far ✈️ Stay sweet 🍦 Shine bright ✦&nbsp;</span>
+            <span>Dream big ✦ Travel far ✈️ Stay sweet 🍦 Shine bright ✦ Dream big ✦ Travel far ✈️ Stay sweet 🍦 Shine bright ✦ Dream big ✦ Travel far ✈️ Stay sweet 🍦 Shine bright ✦&nbsp;</span>
+        </div>
+    </div>
+
     <main>
-        <section class="about">
-            <h2>About Me</h2>
-            <p>
-                Hi, I’m Sadia Islam Arpi. I love traveling 🌍, indulging in ice cream 🍦 and chocolates 🍫, 
-                and expressing my creativity through fashion 👗. My dream is to become a doctor and help others.
-            </p>
-            
+
+        <!-- BIRTHDAY COUNTDOWN -->
+        <section class="wish" id="wish">
+            <div class="card glass wish__card reveal tilt">
+                <div class="wish__cake">🎂</div>
+                <span class="section__kicker">Save the date</span>
+                <h2 class="section__title">My Special Day</h2>
+                <p class="wish__lead">Counting down every second to <strong>16<sup>th</sup> June</strong> ... the day a little more light came into the world ✨</p>
+
+                <div class="countdown" id="countdown" role="timer" aria-live="polite">
+                    <div class="count"><span class="count__num" id="cd-days">00</span><span class="count__label">Days</span></div>
+                    <div class="count"><span class="count__num" id="cd-hours">00</span><span class="count__label">Hours</span></div>
+                    <div class="count"><span class="count__num" id="cd-mins">00</span><span class="count__label">Minutes</span></div>
+                    <div class="count"><span class="count__num" id="cd-secs">00</span><span class="count__label">Seconds</span></div>
+                </div>
+
+                <p class="wish__bday" id="bday-msg" hidden>🎉 Happy Birthday, Arpi! 🎉</p>
+
+                <button class="btn-gift magnetic" id="gift-btn" type="button">
+                    <span>🎁 Open your surprise</span>
+                </button>
+            </div>
         </section>
-        <section class="interests">
-            <h2>💖 My Interests 💖</h2>
+
+        <!-- ABOUT -->
+        <section class="about" id="about">
+            <div class="card glass about__card reveal">
+                <span class="section__kicker">Get to know me</span>
+                <h2 class="section__title">About Me</h2>
+                <span class="quote-mark" aria-hidden="true">“</span>
+                <p class="about__text">
+                    Hi, I’m <strong>Sadia Islam Arpi</strong>. I love traveling 🌍, indulging in ice cream 🍦
+                    and chocolates 🍫, and expressing my creativity through fashion 👗.
+                    My dream is to become a doctor and help others.
+                </p>
+            </div>
+        </section>
+
+        <!-- INTERESTS (bento) -->
+        <section class="interests" id="interests">
+            <div class="interests__head reveal">
+                <span class="section__kicker">A few of my favourite things</span>
+                <h2 class="section__title">💖 My Interests 💖</h2>
+            </div>
+
             <div class="interest-grid">
-                <div class="interest">
-                    <img src="https://i.postimg.cc/GmkJfbQ0/IMG-20250103-032111.jpg" alt="Ice Cream">
-                    <h3>Ice Cream 🍦</h3>
-                </div>
-                <div class="interest">
-                    <img src="https://i.postimg.cc/pdCQ2k4q/images-1-7.jpg" alt="Chocolate">
-                    <h3>Chocolate 🍫</h3>
-                </div>
-                <div class="interest">
-                    <img src="https://i.postimg.cc/x1SLMWS6/images-1-8.jpg" alt="Fashion">
-                    <h3>Fashion 👗</h3>
-                </div>
-                <div class="interest">
-                    <img src="https://i.postimg.cc/X75PkGr4/IMG-20250103-032817.jpg" alt="Korean Dramas">
-                    <h3>Korean Dramas(Fav:Snow Drop) 🎥</h3>
-                </div>
-                <div class="interest">
-                    <img src="https://i.postimg.cc/j5CgwLVV/images-1-11.jpg" alt="Doctor">
-                    <h3>Becoming a Doctor 🩺</h3>
-                </div>
+                <article class="interest tilt reveal" style="--i:0">
+                    <img src="https://i.postimg.cc/GmkJfbQ0/IMG-20250103-032111.jpg" alt="Ice Cream" loading="lazy">
+                    <div class="interest__body">
+                        <span class="interest__emoji">🍦</span>
+                        <h3>Ice Cream</h3>
+                        <p>My favourite kind of happiness</p>
+                    </div>
+                </article>
+
+                <article class="interest tilt reveal" style="--i:1">
+                    <img src="https://i.postimg.cc/pdCQ2k4q/images-1-7.jpg" alt="Chocolate" loading="lazy">
+                    <div class="interest__body">
+                        <span class="interest__emoji">🍫</span>
+                        <h3>Chocolate</h3>
+                        <p>Sweet, just like a good day</p>
+                    </div>
+                </article>
+
+                <article class="interest tilt reveal" style="--i:2">
+                    <img src="https://i.postimg.cc/x1SLMWS6/images-1-8.jpg" alt="Fashion" loading="lazy">
+                    <div class="interest__body">
+                        <span class="interest__emoji">👗</span>
+                        <h3>Fashion</h3>
+                        <p>Creativity I wear every day</p>
+                    </div>
+                </article>
+
+                <article class="interest tilt reveal" style="--i:3">
+                    <img src="https://i.postimg.cc/X75PkGr4/IMG-20250103-032817.jpg" alt="Korean Dramas" loading="lazy">
+                    <div class="interest__body">
+                        <span class="interest__emoji">🎥</span>
+                        <h3>Korean Dramas</h3>
+                        <p>Forever a fan of <em>Snow Drop</em></p>
+                    </div>
+                </article>
+
+                <article class="interest tilt reveal" style="--i:4">
+                    <img src="https://i.postimg.cc/j5CgwLVV/images-1-11.jpg" alt="Becoming a Doctor" loading="lazy">
+                    <div class="interest__body">
+                        <span class="interest__emoji">🩺</span>
+                        <h3>Becoming a Doctor</h3>
+                        <p>Healing the world, one heart at a time</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- INSTAGRAM CTA -->
+        <section class="connect">
+            <div class="card glass connect__card reveal tilt">
+                <span class="section__kicker">Say hi</span>
+                <h2 class="section__title">Find me here</h2>
+                <p>Step into my world on Instagram 💌</p>
+                <a class="btn-ig magnetic" href="https://instagram.com/meowgonnaeatualive" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                    @meowgonnaeatualive
+                </a>
             </div>
         </section>
     </main>
-    <footer>
-        <div class="container">
-            <p>✨ For Sadia Islam Arpi ✨</p>
-        </div>
+
+    <footer class="footer">
+        <div class="footer__heart">♡</div>
+        <p class="footer__main">✨ For Sadia Islam Arpi ✨</p>
+        <p class="footer__poem">
+            made by someone from your old days...<br>
+            once a good friend, now just a name the quiet kept,<br>
+            who still left a little light on, just in case.<br>
+            happy birthday, Arpi... always, from afar.
+        </p>
     </footer>
+
+    <!-- surprise note -->
+    <div class="modal" id="modal" hidden>
+        <div class="modal__backdrop" data-close></div>
+        <div class="modal__card glass" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button class="modal__close" data-close aria-label="Close">✕</button>
+            <div class="modal__cake">🎀</div>
+            <h3 id="modal-title">A little wish for you</h3>
+            <p class="modal__note">
+                Happy Birthday, Arpi! 🎂<br><br>
+                Here's to the dreamer who's going to travel the world and heal it as a doctor someday.
+                May this year be as sweet as your favourite ice cream, as bright as your smile,
+                and full of every little thing that makes you happy.
+                Keep dreaming, keep shining... the world is so much better with you in it. 🌸
+            </p>
+            <p class="modal__sign">... with the warmest birthday wishes</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
-<link rel="stylesheet" href="styles.css">
-
-
